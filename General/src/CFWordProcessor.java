@@ -26,8 +26,8 @@ public class CFWordProcessor {
 	static void init() {
 		
 		n = in.nextInt();
-		k = in.nextInt();
-		String str = in.nextLine();
+		k = in.nextInt(); in.nextLine();
+		str = in.nextLine();
 		
 	}
 	
@@ -35,10 +35,10 @@ public class CFWordProcessor {
 		
 		arr = str.split(" ");
 		out.print(arr[0]);
+		int temp = arr[0].length();
 		
 		for(int i = 1; i<n; i++) {
 			
-			int temp = arr[0].length();
 			int length = arr[i].length();
 			int sum = temp + length;
 			
@@ -49,11 +49,12 @@ public class CFWordProcessor {
 				
 			}else {
 				
-				out.println(" " + arr[i]);
+				out.print("\n " + arr[i]);
 				temp = length;
 			}
 		}
 		
+		out.println();
 		
 		
 	}
