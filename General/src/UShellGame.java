@@ -2,11 +2,11 @@ import java.io.*;
 import java.util.Scanner;
 public class UShellGame {
 	
-	static String file = "test";
+	static String file = "shell";
 	static Scanner in;
 	static PrintWriter out;
 	static int n, a, b, g, count, ans;
-	static String[] nums;
+	static int[][] nums;
 	static boolean[] shells;
 	
 
@@ -25,35 +25,48 @@ public class UShellGame {
 	
 	static void init() {
 		
-		n = in.nextInt();
-		String [] nums = new String[3];
-		boolean[] shells = new boolean[3];
+		n = in.nextInt(); in.nextLine();
+		nums = new int[n][3];
+		
+		for(int j = 0; j<n; j++) {
+			nums[j][0]= in.nextInt()-1;
+			nums[j][1] = in.nextInt()-1;
+			nums[j][2] = in.nextInt()-1;
+				
+		}
+		
+	
+			
+		shells = new boolean[3];
 		ans = 0;
 		count = 0;
 	}
 	
 	static void solve() {
 		
+		
+		
 		for(int i = 0; i<3; i++) {
 			
-			for(int j = 0; j<n; j++) {
-				nums = in.nextLine().split(" ");
-				a = Integer.parseInt(nums[0]);
-				b = Integer.parseInt(nums[1]);
-				g = Integer.parseInt(nums[2]);
-			}
-			
+			shells = new boolean[3];
 			shells[i] = true;
-			if(i==a) {
-				shells[a] = false;
-				shells[b] = true;
-			}
-			if(i==b) {
-				shells[b] = false;
-				shells[a] = true;
+			
+			
+			for(int j = 0; j<n; j++) {
+				
+			
+				a = nums[j][0];
+				b = nums[j][1];
+				g = nums[j][2];
+				
+				boolean temp = shells[a];
+				shells[a] = shells[b];
+				shells[b] = temp;
+				
+				if(shells[g]) count++;
 			}
 			
-			if(shells[g]==true) count++;
+			
 			
 			ans = Math.max(ans, count);
 			count = 0;
