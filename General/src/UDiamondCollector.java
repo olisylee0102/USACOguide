@@ -22,7 +22,7 @@ public class UDiamondCollector {
 	}
 	
 	static void init() {
-		
+		  
 		n = in.nextInt();
 		k = in.nextInt();in.nextLine();
 		
