@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 public class UMixingMilk {
 	
-	static String file = "test";
+	static String file = "mixmilk";
 	static Scanner in;
 	static PrintWriter out;
 	static int m1, m2, m3, c1, c2, c3;
@@ -35,34 +35,38 @@ public class UMixingMilk {
 	static void solve() {
 		
 		for(int i = 0; i<33; i++) {
-			if(m1 + m2 >c2) {
-				m2 = c2;
+			if(m1 + m2 >=c2) {
+				
 				m1 = m1 + m2 - c2;
+				m2 = c2;
 			}else {
 				m2+=m1;
 				m1 = 0;
 			}
 			
-			if(m2 + m3 >c3) {
-				m3 = c3;
+			if(m2 + m3 >=c3) {
+				
 				m2 = m2 + m3 - c3;
+				m3 = c3;
 			}else {
 				m3+=m2;
 				m2 = 0;
 			}
 			
-			if(m3 + m1 >c1) {
-				m1 = c1;
+			if(m3 + m1 >=c1) {
+				
 				m3 = m1 + m3 - c1;
+				m1 = c1;
 			}else {
 				m1+=m3;
 				m3 = 0;
 			}
 		}
 		
-		if(m1 + m2 >c2) {
-			m2 = c2;
+		if(m1 + m2 >=c2) {
+			
 			m1 = m1 + m2 - c2;
+			m2 = c2;
 		}else {
 			m2+=m1;
 			m1 = 0;
